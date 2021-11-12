@@ -17,6 +17,9 @@ struct HomeView: View {
     //MARK: - BODY
     var body: some View {
         VStack(spacing: 20){
+            //MARK: - HEADER
+            //MARK: - CENTER
+            //MARK: - FOOTER
             Text("Home")
                 .font(.largeTitle)
             Button(action: {
@@ -35,3 +38,4 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+

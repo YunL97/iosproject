@@ -21,7 +21,7 @@ struct OnboardingView: View {
             VStack(spacing:20){
             //MARK: - HEADER
             Spacer()
-                
+                ZStack{
                 VStack(spacing:0){
                     Text("Share.")
                             .font(.system(size: 60))
@@ -37,6 +37,7 @@ struct OnboardingView: View {
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal,10)
+                }
                 }
             
             //MARK: - CENTER
@@ -70,9 +71,42 @@ struct OnboardingView: View {
                     .fill(Color.white.opacity(0.2))
                     .padding(8)
                 
-                //2. 간단한 클릭 유도 텍스트
-                //3. 캡슐모양, 사용자 드래그하면 모양너비 변경
+                //2. 간단한 클릭 유도 텍스
+                
+                Text("Get Started")
+                    .font(.system(.title3,design: .rounded))
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .offset(x:20)
+                //3. 캡슐모양, 사용자 드래그하면 모양너비 변
+                
+                HStack{
+                    Capsule()
+                        .fill(Color("ColorRed"))
+                        .frame(width: 80)
+                    
+                    Spacer()
+                }
                 //4. 쉐브론 기호가 있는 원모양의 실제 드래그
+                
+                
+                HStack {
+                    ZStack{
+                    Circle()
+                            .fill(Color("ColorRed"))
+                        Circle()
+                            .fill(.black.opacity(0.15))
+                            .padding(8)
+                        Image(systemName: "chevron.right.2")
+                            .font(.system(size: 24, weight: .bold))
+                    }
+                    .foregroundColor(.white)
+                .frame(width: 80,alignment: .center)
+                .onTapGesture {
+                    isOnboardingViewActive  = false
+                }
+                    Spacer()
+                }//:HSTACK
             }//: FOOTER
             .frame(height:80, alignment: .center)
             .padding()

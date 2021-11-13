@@ -4,15 +4,22 @@ import Darwin
 
 func solution(_ lottos:[Int], _ win_nums:[Int]) -> [Int] {
     
-    var same = 0
-    var blindNum = 0
+   
     
-    ㄴ
+    //var zero = lottos.filter({ (value: Int) -> Bool in return (value  == 0) } ).count
+    var zero = lottos.filter({ $0 == 0} ).count
+    var nozero = lottos.filter({ $0 != 0} )
     
-    let minGrade = min(7 - same,6)
-    let maxGrade = min(7 - same - blindNum,6)
-    print(minGrade,maxGrade)
-    return [minGrade,maxGrade]
+    
+    var correct = win_nums.filter({ nozero.contains($0) }).count
+    print(correct)
+    
+    
+    
+    var a = min(7 - correct,6)
+    var b = min(7 - correct - zero, 6)
+    
+    return [b,a]
 }
 
 

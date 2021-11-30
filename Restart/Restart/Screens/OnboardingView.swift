@@ -16,22 +16,31 @@ struct OnboardingView: View {
     @State private var buttonOffset: CGFloat = 0
     @State private var scale: CGFloat = 1.0
     @State private var size21: CGFloat = 8
+    @State private var isAnimating: Bool = false //애니메이션 속성스위치
+    @State private var imageOffset: CGSize = .zero //=CGSize(width: 0, height: 0)
+    @State private var indicatorOpacity: Double = 1
+    @State private var textTitle: String = "Share."
     
+    let hapticFeedback = UINotificationFeedbackGenerator()
     //MARK: - BODY
     
     var body: some View {
+        
         ZStack {
             Color("ColorBlue")
                 .ignoresSafeArea(edges: .all)
             VStack(spacing:20){
             //MARK: - HEADER
             Spacer()
-                ZStack{
+               
                 VStack(spacing:0){
-                    Text("Share.")
+                    Text(textTitle)
                             .font(.system(size: 60))
                             .fontWeight(.heavy)
                             .foregroundColor(.white)
+                            .transition(.opacity)
+                            .id(textTitle) //고유한 id 생성
+                                    
                         
                     Text("""
                         It`s not now much we give but
@@ -42,9 +51,10 @@ struct OnboardingView: View {
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal,10)
-                }
-                }
-            
+                }//: HEADER
+                .opacity(isAnimating ? 1 : 0) //slide down
+                .animation(.easeOut(duration: 10), value: isAnimating) //1초지속시간으로 애니메이션이 끝날떄 속도느려짐
+                .offset(y: isAnimating ? 0 : -40) //
             //MARK: - CENTER
             
             ZStack{
@@ -57,12 +67,53 @@ struct OnboardingView: View {
 //                        .frame(width: 260, height: 260, alignment: .center)
 //                }//: ZSTACK
                 
-                CircleGroupView(ShapeColor: .white, ShapeOpacity: 0.2)
+                CircleGroupView(ShapeColor: .black, ShapeOpacity: 0.2)
+                    .offset(x: imageOffset.width * -1)
+                    .blur(radius: abs(imageOffset.width / 5))
+                    .animation(.easeOut(duration: 1), value: imageOffset)
+                
+                
                 Image("character-1")
                     .resizable()
                     .scaledToFit()
+                    .opacity(isAnimating ? 1 : 0)
+                    .animation(.easeOut(duration: 0.5), value: isAnimating)
+                    .offset(x: imageOffset.width * 1.2, y: 0)
+                    .rotationEffect((.degrees(Double(imageOffset.width/20))))//:degrees: 각도, 변수: 앵커
+                    .gesture(
+                    DragGesture()
+                        .onChanged{ gesture in
+                            if abs(imageOffset.width) <= 150 {
+                                print(imageOffset.width)
+                                imageOffset = gesture.translation
+                                
+                                withAnimation(.easeOut(duration: 0.25)){
+                                    indicatorOpacity = 0
+                                    textTitle = "Give."
+                                }
+                            }
+                        }
+                        .onEnded{ _ in
+                            imageOffset = .zero
+                            
+                            withAnimation(.linear(duration: 0.25)){
+                                indicatorOpacity = 1
+                                textTitle = "Share."
+                            }
+                        }
+                    )//: Gesture
+                    .animation(.easeOut(duration: 1), value: imageOffset)
             }//: CENTER
-            
+            .overlay(
+            Image(systemName: "arrow.left.and.right.circle")
+                .font(.system(size: 44, weight:  .ultraLight))
+                .foregroundColor(.white)
+                .offset(y: 20)
+                .opacity(isAnimating ? 1 : 0)
+                .animation(.easeOut(duration: 1).delay(2), value: isAnimating)
+                .opacity(indicatorOpacity)
+            ,alignment: .bottom
+            )
             Spacer()
             
             //MARK: - FOOTER
@@ -71,6 +122,7 @@ struct OnboardingView: View {
                 //PARTS OF THE CUSTOM BUTTON
                 
                 //1. 정적배경
+                
                 Capsule()
                     .fill(Color.white.opacity(0.2))
                 
@@ -120,13 +172,20 @@ struct OnboardingView: View {
                             }
                         }
                         .onEnded{ _ in
-                            if buttonOffset > buttonWidth / 2 {
-                                buttonOffset = buttonWidth - 80
-                                isOnboardingViewActive = false
-                            }else{
-                                buttonOffset = 0//중간에 멈추면 처음으로
+                           
+                            withAnimation(Animation.easeOut(duration: 1)){
+                                if buttonOffset > buttonWidth / 2 {
+                                    hapticFeedback.notificationOccurred(.success)
+                                    playSound(sound: "chimeup", type: "mp3")
+                                    
+                                    buttonOffset = buttonWidth - 80
+                                    isOnboardingViewActive = false
+                                }else{
+                                    hapticFeedback.notificationOccurred(.warning)
+                                    buttonOffset = 0//중간에 멈추면 처음으로
+                                }
+                                size21 = 8
                             }
-                            size21 = 8
                         }
                 ) //: GESTURE
                     Spacer()
@@ -134,6 +193,9 @@ struct OnboardingView: View {
             }//: FOOTER
             .frame( width:buttonWidth,height:80, alignment: .center)
             .padding()
+            .opacity(isAnimating ? 1 : 0)
+            .offset(y: isAnimating ? 0 : 40)
+            .animation(.easeOut(duration: 1), value: isAnimating)
             
             
             
@@ -150,7 +212,11 @@ struct OnboardingView: View {
 //                }
 //            }
         } //:VSTACK
-    }
+    }//:ZSTACK
+        .onAppear(perform: { //view가 나타나서 실행될 action을 추가한다
+            isAnimating = true
+        })
+        
 }
                    }
 

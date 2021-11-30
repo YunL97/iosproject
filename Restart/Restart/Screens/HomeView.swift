@@ -11,6 +11,7 @@ struct HomeView: View {
     //MARK: - PROPERTY
     
     @AppStorage("onboarding") var isOnboardingViewActive: Bool = false
+    @State private var isAnimating: Bool = false
 
     
   
@@ -23,11 +24,18 @@ struct HomeView: View {
             
             ZStack {
                 
-                CircleGroupView(ShapeColor: .gray, ShapeOpacity: 0.1)
+                CircleGroupView(ShapeColor: .blue, ShapeOpacity: 0.1)
                 Image("character-2")
                     .resizable()
                     .scaledToFit()
                 .padding()
+                .offset(y: isAnimating ? 35 :  -35)
+                .animation(
+                            .easeInOut(duration: 4)
+                            .repeatForever()
+                            ,value: isAnimating
+                )
+                
             }
             
             //MARK: - CENTER
@@ -46,7 +54,10 @@ struct HomeView: View {
 
             Button(action: {
                 //Some action
+                withAnimation{
                 isOnboardingViewActive = true
+                    playSound(sound: "success", type: "m4a")
+                }
             }){
                 Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
                     .imageScale(.large)
@@ -59,6 +70,13 @@ struct HomeView: View {
             .buttonBorderShape(.capsule)
             .controlSize(.large)
         }//: VSTACK
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {//지연이 발생되게 하려면 메인쓰레드를 사용해야한다. 메인스레드나 백그라운드 스레드에서 실행 o
+                isAnimating = true
+                
+            
+            })
+        })
     }
 }
 

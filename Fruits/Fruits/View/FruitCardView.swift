@@ -21,8 +21,8 @@ struct FruitCardView: View {
                     .resizable()
                     .scaledToFit()
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.95), radius: 8, x: 6,y: 8)
-                    .scaleEffect(isAnimating ? 1.0 : 0.6)
-                    
+                    .scaleEffect(isAnimating ? 1.0 : 0.1)
+                     
                 //FRUIT: TITLE
                 Text("Blueberry")
                     .foregroundColor(Color.white)
@@ -40,11 +40,12 @@ struct FruitCardView: View {
                 
                 //BUTTON: START
                 StartButtonView()
+                    .scaleEffect(isAnimating ? 1.0 : 0.1)
             } //: VSTACK
         }//: ZSTACK
         .onAppear {
             withAnimation(.easeOut(duration: 0.9)){
-                isAnimating = true
+                isAnimating = true // false 에서 true가 0.9초 걸쳐서 일어난다
             }
                 }
     

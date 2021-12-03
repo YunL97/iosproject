@@ -15,8 +15,9 @@ struct OnboardingView: View {
         TabView {
             FruitCardView()
         }
-        
     }
+    
+    
 }
 
 // MARK: - PREVIEW

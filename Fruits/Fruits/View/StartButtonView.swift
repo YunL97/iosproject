@@ -9,11 +9,15 @@ import SwiftUI
 
 struct StartButtonView: View {
     // MARK: - PROPERTIES
+    @State private var isAnimating: Bool = false
     
     // MARK: - BODY
     var body: some View {
         Button(action: {
             print("Exit the onboarding")
+            withAnimation(.easeOut(duration: 0.5)){
+                isAnimating = true
+            }
         }){
             HStack(spacing: 8) {
                 Text("Stsrt")
@@ -25,9 +29,14 @@ struct StartButtonView: View {
             .padding(.vertical, 10)
             .background(
                 Capsule().strokeBorder(.white, lineWidth: 2)
+                
             )
+            
         }//: Button
         .accentColor(.orange)
+        .scaleEffect(isAnimating ? 1.0 : 0.5)
+        
+        
     }
 }
 

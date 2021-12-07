@@ -17,6 +17,7 @@ struct OnboardingView: View {
             ForEach(fruits[0...5]) {item in
                 FruitCardView(fruit: item)
             }
+           
         }
         .tabViewStyle(PageTabViewStyle())
         .padding(.vertical, 20)
@@ -24,7 +25,6 @@ struct OnboardingView: View {
     
     
 }
-
 // MARK: - PREVIEW
 
 struct OnboardingView_Previews: PreviewProvider {

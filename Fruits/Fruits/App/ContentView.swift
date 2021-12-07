@@ -17,7 +17,7 @@ struct ContentView: View {
             List {
                 ForEach(fruits.shuffled()) { item in
                     FruitRowView(fruit: item)
-                        .padding(.vertical, 4)
+                        .padding(.vertical, 5)
                     
                 }
             }

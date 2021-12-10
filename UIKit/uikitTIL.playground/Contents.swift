@@ -101,3 +101,122 @@ isOn.description
 
 let myNum = 12.33
 String(myNum).split(separator: ".")
+
+let myName1 = "lee yun sik"
+
+for character in myName1 {
+    print(character)
+}
+
+var myNames = Array<String>() //이니셜라이즈, 메모리에 올리는것
+myNames.append("a")
+myNames.append("b")
+myNames.append("c")
+
+//방어코드
+//안전한 코딩 스타일
+var index = 2
+if myNames.count > index {
+    myNames[index]
+}
+
+myNames.append(contentsOf: ["d","e"])
+myNames = myNames + ["f"]
+myNames.remove(at: 5)
+
+for name in myNames {
+    print(name + "님")
+}
+
+for (index, name) in myNames.enumerated() //index, value
+{
+    print(index, name)
+}
+
+var setNames = Set<String>()
+setNames.insert("1")
+setNames.insert("2")
+setNames.insert("3")
+setNames.insert("3")
+setNames.insert("3")
+var setNames1: Set = [1,2,3]
+var setNames2: Set = [2,3,4,5,6] //int
+print(setNames)
+
+//교집합
+setNames1.intersection(setNames2)
+
+//합집합
+setNames1.union(setNames2)
+
+//합집합 - 교집합
+setNames1.symmetricDifference(setNames2)
+
+//차집합
+setNames1.subtracting(setNames2)
+
+//Divtionary
+var nameOfStreet = [String: String]()
+
+nameOfStreet["302ro"] = "1st Street"
+nameOfStreet["303ro"] = "2st Street"
+nameOfStreet["304ro"] = "3st Street"
+nameOfStreet
+for dic in nameOfStreet {
+    dic.value
+}
+
+
+let forname = "23456"
+for char in forname {
+    print((Int(String(char)) ?? 0) * 10)
+}
+
+let arrname = ["a","b", "c"]
+
+for arrname in arrname {
+    print(arrname)
+}
+
+let numberOfLegs = ["ant" : 6, "dog" : 4]
+for dic in numberOfLegs {
+    print(dic)
+}
+
+func plus(_ num1: Int){
+    print(num1)
+}
+//plus(num1: 10)
+plus(10)
+
+func calc(result: (Int, Int) -> Int){
+    print(result(1,2))
+    
+}
+
+//Closure 이름이 없음
+// func - 유사하다
+
+//function]
+func myScore(a: Int) -> String{
+    return "\(a)점"
+}
+
+//clousre
+//축약
+let myScore2 = { (a: Int) -> String in
+    return "\(a)"
+}
+
+myScore2(20)
+
+let myScore5: (Int) -> String = { a in
+    "\(a)점"
+}
+
+let myScore6: (Int, Int, Int) -> String = {
+    "\($0+$1+$2 )"
+}
+
+myScore5(200)
+

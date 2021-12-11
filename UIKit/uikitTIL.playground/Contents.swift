@@ -220,3 +220,147 @@ let myScore6: (Int, Int, Int) -> String = {
 
 myScore5(200)
 
+// 클로저 조건 -> 특정한 글자가 포함된 것을 찾기
+//---------------------------
+var cname = ["apple", "air", "brown","red", "orange"]
+
+//특정 글자 포함
+let containsSomeText: (String, String) -> Bool = { name, find in
+    if name.contains(find) {
+        return true
+    }
+    return false
+}
+
+//입력한 글자로 시작하는 첮글자 찾기
+let isStartSomeText: (String, String) -> Bool = { name, find in
+  if name.first?.description == find {
+        return true
+    }
+    return false
+}
+//---------------------------
+func find(findString: String, condition: (String, String) ->Bool) -> [String]{
+    var newNames = [String]()
+    
+    for name in cname{
+        if condition(name,findString) {
+            newNames.append(name)
+        }
+    }
+    return newNames
+}
+find(findString: "a", condition: containsSomeText)
+find(findString: "a", condition: isStartSomeText)
+
+
+
+func someFind(find: String) -> [String]{
+    var newNames = [String]()
+    for name in cname {
+        if name.contains(find){
+            newNames.append(name)
+        }
+    }
+    return newNames
+}
+someFind(find: "l")
+
+//sort 원본훼손  sorted 원본해손x
+cname.sort()
+
+var namesort = cname.sorted { lhs, rhs in
+    lhs > rhs
+}
+namesort = cname.sorted{ $0 > $1 }
+namesort = cname.sorted(by:  > )
+
+//enum
+//타입분류
+// 도서관 -> 항목 -> 소설, 문제집, 패션, 만화책
+
+//분류만 하고싶을 때
+enum BookType {
+    case fiction(title: String, price: Int, year: Int)
+    case comics(title: String, price: Int, year: Int)
+    case workbook(title: String, price: Int, year: Int)
+//    var typeName: String {
+//        switch self {
+//        case .comics:
+//            return "comics"
+//        case .fiction:
+//            return "fiction"
+//        case .workbook:
+//            return "workbook"
+//        default:
+//            break
+//        }
+//    }
+}
+
+// enum 확장
+extension BookType {
+    var typeName: String {
+        switch self {
+        case .comics:
+            return "comics"
+        case .fiction:
+            return "fiction"
+        case .workbook:
+            return "workbook"
+        default:
+            break
+        }
+    }
+}
+
+var bookStyle: BookType? //BookType.comics
+var books = [BookType]()
+
+func saveBook(book: BookType){
+    switch book {
+    case .comics:books.append(book)
+    case .fiction:books.append(book)
+    case .workbook:books.append(book)
+    }
+}
+
+//func loadBook(book: BookType) -> [BookType]{
+//    var tempBooks = [BookType]()
+//
+//    for item in books{
+//        if item == book {
+//            tempBooks.append(item)
+//        }
+//    }
+//    return tempBooks
+//}
+//saveBook(book: .comics)
+//saveBook(book: BookType.finction)
+//saveBook(book: .finction)
+//saveBook(book: .comics)
+//
+//loadBook(book: .comics)
+//
+//
+//
+
+saveBook(book: .comics(title: "aaa", price: 5000, year: 2020))
+saveBook(book: .workbook(title: "ccc", price: 5000, year: 2020))
+
+
+for book in books {
+    if case let BookType.comics(title, price, year) = book {//book에 값 없으면 false
+        print("comics", title, book.typeName)
+    }
+    switch book {
+    case let .comics(title, price, year):
+        print(price)
+    case .fiction(title: let title, price: let price, year: let year):
+        <#code#>
+    case let .workbook(title, _, _):
+        print(title)
+    default:
+        break
+    }
+}

@@ -364,3 +364,28 @@ for book in books {
         break
     }
 }
+
+class myInfo {
+    var name = ""
+    var age = 0
+    init(gender: GenderType) {
+        self.genderType = gender
+    }
+    enum GenderType {
+        case male
+        case female
+    }
+    var genderType:GenderType
+    
+    func isAdult() -> Bool {
+        if age > 10{
+            return true
+        }
+        return false
+    }
+}
+
+var acc = myInfo(gender:.male)
+acc.age = 10
+acc.genderType
+acc.isAdult()

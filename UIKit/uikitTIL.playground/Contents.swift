@@ -389,3 +389,26 @@ var acc = myInfo(gender:.male)
 acc.age = 10
 acc.genderType
 acc.isAdult()
+
+
+class GameInfo {
+    var homeScore = 0
+    var awayScore = 0
+    
+    func presentScore() -> String {
+        return homeScore.description + " : " + awayScore.description
+    }
+}
+class Soccer: GameInfo{
+    
+}
+class BaseBall: GameInfo {
+    
+}
+
+
+
+let soccer = Soccer()
+soccer.awayScore = 1
+soccer.homeScore = 2
+soccer.presentScore()

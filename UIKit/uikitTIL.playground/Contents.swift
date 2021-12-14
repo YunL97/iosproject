@@ -412,3 +412,77 @@ let soccer = Soccer()
 soccer.awayScore = 1
 soccer.homeScore = 2
 soccer.presentScore()
+
+//Properties
+class MyInfoo {
+    
+    //stored property(저장)
+    var name = ""
+    var age = 0
+    
+    //lazy stored property myInfoo 가 c에 접근할때 c프로퍼티가 메모리에 올라간다
+    lazy var c = "c"
+    
+    //computed property(계산)
+    var isAdult: Bool {
+        if age > 19 {
+            return true
+        }
+        return false
+    }
+    
+    //email -> 보안 -> 암호화 된 값으로 사용한다 (항상해야할때 사용)
+    var _email = ""
+    var email: String {
+        get{
+            return _email
+        }
+        set{
+            _email = newValue.hash.description //hash 로 암호화
+        }
+    }
+    
+    
+}
+
+let myInfoo = MyInfoo()
+myInfoo.email = "abc@test.com"
+print(myInfoo.email)
+
+myInfoo.c = "Cc"
+print(myInfoo.c)
+
+//Initializer
+//생성자
+
+class MyInfoin {
+    var name: String
+    var myId: String
+    
+    //desigenated initializer
+    init(n:String, id:String){
+        self.name = n
+        self.myId=id
+    }
+    
+    init(id: String){
+        self.name = ""
+        self.myId = id
+    }
+    //init가 여러개 있을때 사용하면 된다
+    //convenience initializer // 필수조건 - 다른init 을 반드시 실행해야한다
+    convenience init() {
+        self.init(n: "", id: "")
+    }
+    
+
+    
+}
+
+var myinfoin = MyInfoin(n: "kim", id: "abcd")
+
+
+struct MyConfig {
+    var cinf: String
+}
+var myCon = MyConfig(cinf: "Asd")

@@ -486,3 +486,90 @@ struct MyConfig {
     var cinf: String
 }
 var myCon = MyConfig(cinf: "Asd")
+
+//Deinitialization
+//해제
+
+var accc: Int? = 10
+a = nil
+
+class Game {
+    var score = 0
+    var name = ""
+    var round: Round?
+    
+    init() {
+        
+    }
+    deinit {
+        print("game deinit")
+    }
+}
+
+class Round {
+    var gameInfo:Game?
+    var lastRound = 10
+    var roundTime = 20
+}
+
+extension UIColor {
+    var mainColor1:UIColor{
+        UIColor(red: 50/255, green: 70/255, blue: 120/255, alpha: 1)
+    }
+}
+
+
+//protocol
+//규격 규약 규칙 청사진 뼈대
+
+protocol UserInfopo{
+    var name:String{get set}
+    var age:Int{get set}
+    func isAdult() -> Bool
+}
+
+class Guest: UserInfopo{
+    var name: String = ""
+    
+    var age: Int = 0
+    
+    func isAdult() -> Bool {
+        if age > 19 {
+            return true
+        }
+        return false
+    }
+    
+    
+    
+}
+
+
+//generic
+//로직 반복, 타입 여러가지       equatable: 비교가능한것만 가능 딕셔너리 불가
+struct Intstack<Mytype1> where Mytype1: Equatable{
+    var items = [Mytype1]()
+    mutating func push(item: Mytype1){
+        items.append(item)
+    }
+    mutating func pop() -> Mytype1? {
+        if items.isEmpty {
+            return nil
+        }
+        return items.removeLast()
+        
+    }
+}
+
+var mySteack  = Intstack<Int>()
+mySteack.push(item: 1)
+mySteack.push(item: 3)
+mySteack.push(item: 2)
+
+var mySteack1  = Intstack<String>()
+mySteack1.push(item: "a")
+mySteack1.push(item: "v")
+mySteack1.push(item: "b")
+
+mySteack.items
+mySteack1.items

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D6C65DD276C282E0076DF33 /* DelegateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6C65DB276C282E0076DF33 /* DelegateDetailViewController.swift */; };
+		6D6C65DE276C282E0076DF33 /* DelegateDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D6C65DC276C282E0076DF33 /* DelegateDetailViewController.xib */; };
+		6D6C65E1276C68D10076DF33 /* closureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6C65DF276C68D10076DF33 /* closureDetailViewController.swift */; };
+		6D6C65E2276C68D10076DF33 /* closureDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D6C65E0276C68D10076DF33 /* closureDetailViewController.xib */; };
+		6D6C65E5276C83DD0076DF33 /* NotiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6C65E3276C83DD0076DF33 /* NotiDetailViewController.swift */; };
+		6D6C65E6276C83DD0076DF33 /* NotiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D6C65E4276C83DD0076DF33 /* NotiDetailViewController.xib */; };
 		6DAFCCBB276B2F550024041E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFCCBA276B2F550024041E /* AppDelegate.swift */; };
 		6DAFCCBD276B2F550024041E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFCCBC276B2F550024041E /* SceneDelegate.swift */; };
 		6DAFCCBF276B2F550024041E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFCCBE276B2F550024041E /* ViewController.swift */; };
@@ -21,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D6C65DB276C282E0076DF33 /* DelegateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateDetailViewController.swift; sourceTree = "<group>"; };
+		6D6C65DC276C282E0076DF33 /* DelegateDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DelegateDetailViewController.xib; sourceTree = "<group>"; };
+		6D6C65DF276C68D10076DF33 /* closureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = closureDetailViewController.swift; sourceTree = "<group>"; };
+		6D6C65E0276C68D10076DF33 /* closureDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = closureDetailViewController.xib; sourceTree = "<group>"; };
+		6D6C65E3276C83DD0076DF33 /* NotiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiDetailViewController.swift; sourceTree = "<group>"; };
+		6D6C65E4276C83DD0076DF33 /* NotiDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotiDetailViewController.xib; sourceTree = "<group>"; };
 		6DAFCCB7276B2F550024041E /* PassData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DAFCCBA276B2F550024041E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DAFCCBC276B2F550024041E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,15 +78,21 @@
 		6DAFCCB9276B2F550024041E /* PassData */ = {
 			isa = PBXGroup;
 			children = (
-				6DAFCCCE276B2FCE0024041E /* DetailViewController.swift */,
-				6DAFCCBA276B2F550024041E /* AppDelegate.swift */,
-				6DAFCCCF276B2FCE0024041E /* DetailViewController.xib */,
-				6DAFCCBC276B2F550024041E /* SceneDelegate.swift */,
 				6DAFCCBE276B2F550024041E /* ViewController.swift */,
+				6DAFCCC0276B2F550024041E /* Main.storyboard */,
+				6DAFCCBA276B2F550024041E /* AppDelegate.swift */,
+				6DAFCCBC276B2F550024041E /* SceneDelegate.swift */,
+				6DAFCCCE276B2FCE0024041E /* DetailViewController.swift */,
+				6DAFCCCF276B2FCE0024041E /* DetailViewController.xib */,
+				6D6C65DB276C282E0076DF33 /* DelegateDetailViewController.swift */,
+				6D6C65DC276C282E0076DF33 /* DelegateDetailViewController.xib */,
+				6D6C65E3276C83DD0076DF33 /* NotiDetailViewController.swift */,
+				6D6C65E4276C83DD0076DF33 /* NotiDetailViewController.xib */,
 				6DAFCCD2276B5AD50024041E /* SegueDetailViewController.swift */,
 				6DAFCCD4276B79750024041E /* IntanceDetailViewController.swift */,
 				6DAFCCD5276B79750024041E /* IntanceDetailViewController.xib */,
-				6DAFCCC0276B2F550024041E /* Main.storyboard */,
+				6D6C65DF276C68D10076DF33 /* closureDetailViewController.swift */,
+				6D6C65E0276C68D10076DF33 /* closureDetailViewController.xib */,
 				6DAFCCC3276B2F570024041E /* Assets.xcassets */,
 				6DAFCCC5276B2F570024041E /* LaunchScreen.storyboard */,
 				6DAFCCC8276B2F570024041E /* Info.plist */,
@@ -140,8 +158,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6C65DE276C282E0076DF33 /* DelegateDetailViewController.xib in Resources */,
+				6D6C65E6276C83DD0076DF33 /* NotiDetailViewController.xib in Resources */,
 				6DAFCCD7276B79750024041E /* IntanceDetailViewController.xib in Resources */,
 				6DAFCCC7276B2F570024041E /* LaunchScreen.storyboard in Resources */,
+				6D6C65E2276C68D10076DF33 /* closureDetailViewController.xib in Resources */,
 				6DAFCCC4276B2F570024041E /* Assets.xcassets in Resources */,
 				6DAFCCC2276B2F550024041E /* Main.storyboard in Resources */,
 				6DAFCCD1276B2FCE0024041E /* DetailViewController.xib in Resources */,
@@ -156,8 +177,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DAFCCBF276B2F550024041E /* ViewController.swift in Sources */,
+				6D6C65E1276C68D10076DF33 /* closureDetailViewController.swift in Sources */,
+				6D6C65DD276C282E0076DF33 /* DelegateDetailViewController.swift in Sources */,
 				6DAFCCBB276B2F550024041E /* AppDelegate.swift in Sources */,
 				6DAFCCD6276B79750024041E /* IntanceDetailViewController.swift in Sources */,
+				6D6C65E5276C83DD0076DF33 /* NotiDetailViewController.swift in Sources */,
 				6DAFCCD3276B5AD50024041E /* SegueDetailViewController.swift in Sources */,
 				6DAFCCBD276B2F550024041E /* SceneDelegate.swift in Sources */,
 				6DAFCCD0276B2FCE0024041E /* DetailViewController.swift in Sources */,

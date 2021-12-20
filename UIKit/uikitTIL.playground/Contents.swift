@@ -575,3 +575,24 @@ mySteack.items
 mySteack1.items
 
 
+class Human{
+let name:String
+init(name: String){
+    self.name = name
+    }
+
+}
+class Man:Human{
+    let a = "a"
+}
+
+class Woman:Human{
+    let b = "b"
+}
+
+let c = Woman(name: "wo") as Human
+let girl: Woman = (c as? Woman)!
+print(girl.name)
+
+//let boy:Man = c as? Man
+

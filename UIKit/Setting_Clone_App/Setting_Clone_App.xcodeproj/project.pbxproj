@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D4A9B492771AA2C007074AF /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4A9B482771AA2C007074AF /* GeneralViewController.swift */; };
+		6D4A9B4B2771AA6B007074AF /* GeneralViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4A9B4A2771AA6B007074AF /* GeneralViewController.storyboard */; };
 		6D54D663277040FE00726065 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D54D661277040FE00726065 /* MenuCell.swift */; };
 		6D54D664277040FE00726065 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D54D662277040FE00726065 /* MenuCell.xib */; };
 		6D5B355C276F2756000893DD /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5B355A276F2756000893DD /* ProfileCell.swift */; };
@@ -21,6 +23,8 @@
 		6D8AD3D4276E1AC9001BA231 /* Setting_Clone_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8AD3D3276E1AC9001BA231 /* Setting_Clone_AppUITests.swift */; };
 		6D8AD3D6276E1AC9001BA231 /* Setting_Clone_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8AD3D5276E1AC9001BA231 /* Setting_Clone_AppUITestsLaunchTests.swift */; };
 		6DA92B9327708CB90053E202 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA92B9227708CB90053E202 /* SettingModel.swift */; };
+		6DEDD0332771E1B00090BA3C /* MyIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDD0312771E1B00090BA3C /* MyIDViewController.swift */; };
+		6DEDD0342771E1B00090BA3C /* MyIDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DEDD0322771E1B00090BA3C /* MyIDViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D4A9B482771AA2C007074AF /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
+		6D4A9B4A2771AA6B007074AF /* GeneralViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeneralViewController.storyboard; sourceTree = "<group>"; };
 		6D54D661277040FE00726065 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		6D54D662277040FE00726065 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		6D5B355A276F2756000893DD /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
@@ -59,6 +65,8 @@
 		6D8AD3D3276E1AC9001BA231 /* Setting_Clone_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_Clone_AppUITests.swift; sourceTree = "<group>"; };
 		6D8AD3D5276E1AC9001BA231 /* Setting_Clone_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_Clone_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6DA92B9227708CB90053E202 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		6DEDD0312771E1B00090BA3C /* MyIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIDViewController.swift; sourceTree = "<group>"; };
+		6DEDD0322771E1B00090BA3C /* MyIDViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyIDViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,15 +117,19 @@
 		6D8AD3B1276E1AC8001BA231 /* Setting_Clone_App */ = {
 			isa = PBXGroup;
 			children = (
+				6D8AD3B6276E1AC8001BA231 /* ViewController.swift */,
+				6D8AD3B8276E1AC8001BA231 /* Main.storyboard */,
 				6D8AD3B2276E1AC8001BA231 /* AppDelegate.swift */,
 				6D8AD3B4276E1AC8001BA231 /* SceneDelegate.swift */,
-				6D8AD3B6276E1AC8001BA231 /* ViewController.swift */,
 				6D5B355A276F2756000893DD /* ProfileCell.swift */,
 				6D5B355B276F2756000893DD /* ProfileCell.xib */,
 				6DA92B9227708CB90053E202 /* SettingModel.swift */,
+				6D4A9B482771AA2C007074AF /* GeneralViewController.swift */,
+				6D4A9B4A2771AA6B007074AF /* GeneralViewController.storyboard */,
+				6DEDD0312771E1B00090BA3C /* MyIDViewController.swift */,
+				6DEDD0322771E1B00090BA3C /* MyIDViewController.xib */,
 				6D54D661277040FE00726065 /* MenuCell.swift */,
 				6D54D662277040FE00726065 /* MenuCell.xib */,
-				6D8AD3B8276E1AC8001BA231 /* Main.storyboard */,
 				6D8AD3BB276E1AC9001BA231 /* Assets.xcassets */,
 				6D8AD3BD276E1AC9001BA231 /* LaunchScreen.storyboard */,
 				6D8AD3C0276E1AC9001BA231 /* Info.plist */,
@@ -246,9 +258,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D4A9B4B2771AA6B007074AF /* GeneralViewController.storyboard in Resources */,
 				6D8AD3BF276E1AC9001BA231 /* LaunchScreen.storyboard in Resources */,
 				6D5B355D276F2756000893DD /* ProfileCell.xib in Resources */,
 				6D8AD3BC276E1AC9001BA231 /* Assets.xcassets in Resources */,
+				6DEDD0342771E1B00090BA3C /* MyIDViewController.xib in Resources */,
 				6D8AD3BA276E1AC8001BA231 /* Main.storyboard in Resources */,
 				6D54D664277040FE00726065 /* MenuCell.xib in Resources */,
 			);
@@ -276,9 +290,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D8AD3B7276E1AC8001BA231 /* ViewController.swift in Sources */,
+				6D4A9B492771AA2C007074AF /* GeneralViewController.swift in Sources */,
 				6D5B355C276F2756000893DD /* ProfileCell.swift in Sources */,
 				6DA92B9327708CB90053E202 /* SettingModel.swift in Sources */,
 				6D8AD3B3276E1AC8001BA231 /* AppDelegate.swift in Sources */,
+				6DEDD0332771E1B00090BA3C /* MyIDViewController.swift in Sources */,
 				6D8AD3B5276E1AC8001BA231 /* SceneDelegate.swift in Sources */,
 				6D54D663277040FE00726065 /* MenuCell.swift in Sources */,
 			);

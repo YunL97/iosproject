@@ -596,3 +596,5 @@ print(girl.name)
 
 //let boy:Man = c as? Man
 
+let aasc = [[1],[2,3],[4,5,6]]
+print(aasc[0].[0])

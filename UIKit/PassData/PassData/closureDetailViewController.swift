@@ -27,7 +27,7 @@ class closureDetailViewController: UIViewController {
     @IBAction func closurePassData(_ sender: Any) {
         
     myClosure?("closure String")
-        self.dismiss(animated: true, completion: nil)
+    self.dismiss(animated: true, completion: nil)
     }
     
     /*

@@ -7,7 +7,7 @@
 
 import UIKit
 
-//테이블 위에 cell이 올려져 있기 때문에 register이 필요없음
+ //테이블 위에 cell이 올려져 있기 때문에 register이 필요없음
 class GeneralCell: UITableViewCell {
     
     @IBOutlet weak var rightImageView: UIImageView! {

@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     
 }
 }
-
+//
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     //셀 개수
@@ -100,7 +100,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.leftImageView.image = UIImage(systemName:
                                             settingModel[indexPath.section][indexPath.row].leftImageName)
-        cell.leftImageView.tintColor = .red
+  
         
         cell.middleTitle.text =
 settingModel[indexPath.section][indexPath.row].menuTitle
@@ -110,7 +110,7 @@ settingModel[indexPath.section][indexPath.row].menuTitle
         return cell
     }
     
-    //셀의 높이
+    //셀의  높이
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return UITableView.automaticDimension

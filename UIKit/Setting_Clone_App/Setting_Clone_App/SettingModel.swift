@@ -2,7 +2,7 @@
 //  SettingModel.swift
 //  Setting_Clone_App
 //
-//  Created by 이윤식 on 2021/12/20.
+//   Created by 이윤식 on 2021/12/20.
 //
 
 import Foundation

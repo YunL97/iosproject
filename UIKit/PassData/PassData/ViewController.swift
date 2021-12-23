@@ -102,7 +102,7 @@ class ViewController: UIViewController /*,DelegateDetailViewControllerDelegate*/
         //detailVC 안에있는 closurePassData 클릭하면
         
         //구현부
-        //moveToClosure버튼을 처음 누르면 myClosure가 nil이기 때문에 실행 x
+        //moveToClosure버튼을  처음 누르면 myClosure가 nil이기 때문에 실행 x
         detailVC.myClosure = { str in
             self.dataLabel.text = str
             print("ac")

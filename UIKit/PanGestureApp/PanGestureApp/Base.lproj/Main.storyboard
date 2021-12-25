@@ -12,7 +12,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PanGestureApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -34,6 +34,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="PO5-Wq-SMb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NuP-Gu-5py"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PO5-Wq-SMb" secondAttribute="trailing" id="QQq-TT-ryd"/>
                             <constraint firstItem="PO5-Wq-SMb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="loh-GC-8pJ"/>
                             <constraint firstItem="PO5-Wq-SMb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vbI-l6-P1p"/>
@@ -42,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="98"/>
+            <point key="canvasLocation" x="517" y="303"/>
         </scene>
     </scenes>
     <resources>

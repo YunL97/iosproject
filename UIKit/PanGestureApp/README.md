@@ -2,6 +2,8 @@
 <br>
 배운점
 <br>
-1. 코드로 init와 인터페이스 빌더로 init 할 때 차이점
-2. bounds, frame 차이점
+1. 코드로 init와 인터페이스 빌더로 init 할 때 차이점 <br>
+
+2. bounds, frame 차이점<br>
+
 3. UIPanGestureRecognizer, setTranslation, translation

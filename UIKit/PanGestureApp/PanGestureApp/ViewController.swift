@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  PanGestureApp
 //
-//   Created by 이윤식 on 2021/12/25.
+//  Created by 이윤식 on 2021/12/25.
 //
 
 import UIKit

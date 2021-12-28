@@ -22,8 +22,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        if UserDefaults.standard.object(forKey: "ff") == nil {
-            UserDefaults.standard.set(false, forKey: "ff")
+        if UserDefaults.standard.object(forKey: "gg") == nil {
+            UserDefaults.standard.set(false, forKey: "gg")
             
         }
     }
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         
    
         
-        var user = UserDefaults.standard.bool(forKey: "ff")
+        var user = UserDefaults.standard.bool(forKey: "gg")
         print(user)
         if user == false {
         let pageVC = OnBoardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)

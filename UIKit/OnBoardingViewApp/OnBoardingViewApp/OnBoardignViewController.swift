@@ -9,21 +9,29 @@ import UIKit
 
 class OnBoardignViewController: UIViewController {
 
+    var mainText = ""
+    var subText = ""
+    var topImage:UIImage? = UIImage()
+    
+    
+    @IBOutlet private weak var topImageView: UIImageView!
+    @IBOutlet private weak var mainTitleLabel: UILabel!{
+        didSet{
+            mainTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        }
+    }
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mainTitleLabel.text = mainText
+        topImageView.image = topImage
+        descriptionLabel.text = subText
         // Do any additional setup after loading the view.
     }
 
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

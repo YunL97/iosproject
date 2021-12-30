@@ -11,6 +11,8 @@ import PhotosUI
 
 class ViewController: UIViewController {
 
+    var fetchResults: PHFetchResult<PHAsset>?
+
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     
@@ -22,6 +24,7 @@ class ViewController: UIViewController {
         
         makeNavigationItem()
     
+        //PhotoCell 크기지정
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 0.5, height: 200)
         
@@ -31,8 +34,6 @@ class ViewController: UIViewController {
         layout.minimumLineSpacing = 1
         photoCollectionView.collectionViewLayout = layout
         
-
-        photoCollectionView.dataSource = self
         
         
         //xib로 셀 가져오는법, 그래도 크기는 설정 안되네
@@ -40,9 +41,12 @@ class ViewController: UIViewController {
 //        let cell2 = UINib(nibName: "PhotoCell2", bundle: nil)
 //        photoCollectionView.register(cell2, forCellWithReuseIdentifier: "PhotoCell2")
         
+        photoCollectionView.dataSource = self
+
         
     }
 
+    
     
     
     func makeNavigationItem() {
@@ -116,12 +120,14 @@ class ViewController: UIViewController {
         var picker = PHPickerViewController(configuration: configuration)
     
         //viewController 에서 일어나는게 아닌 photoLibrary에서 하기때문에 여기에 해줘야함
+        
+        //extestion delegete 코드 넣기
         picker.delegate = self
         present(picker, animated: true, completion: nil)
     }
     
     @objc func refresh() {
-        
+        self.photoCollectionView.reloadData()
     }
 
 
@@ -129,14 +135,19 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.fetchResults?.count ?? 0
     }
     
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
         
+        //이미지
+        if let asset = self.fetchResults?[indexPath.row] {
+        cell.loadImage(asset: asset)
+        }
 //        cell.photoImageView.image = xxxxx
         return cell
     }
@@ -149,18 +160,37 @@ extension ViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         
 //        results.map(\.assetIdentifier)
+    
+    
         
         let identifiers = results.map{$0.assetIdentifier ?? ""}
           
-       let fetchAssets =  PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
+        //전체받아오는거       // PHFetchResult<PHAsset>
+        fetchResults = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
         
-        fetchAssets.enumerateObjects{ asset, index, stop in
+        //reloadData() 실행하면 UICollectionViewDataSource 실행
+        self.photoCollectionView.reloadData()
+        
+        /*
+        fetchResults.enumerateObjects{ asset, index, stop in
+//            if index == 2 {
+//                stop.pointee = true
+//            }
             
-            //PHImageManager: 이미지로 변형해서 가져오는 함수
-            let imageManager = PHImageManager()
-       
-            imageManager.requestimage
-        }
+//            //PHImageManager: 이미지로 변형해서 가져오는 함수
+//            let imageManager = PHImageManager()
+//
+//            let scale = UIScreen.main.scale
+//
+//            let imageSize = CGSize(width: 150 * scale, height: 150 * scale)
+//
+//            imageManager.requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFill, options: nil) { image, info in
+//
+//                //사이즈를 작은거를 먼저 가져오고 원본을 그다음에 가져온다 그래서 2개씩 들어가짐
+//
+//            }
+//        }
+         */
         
         
         

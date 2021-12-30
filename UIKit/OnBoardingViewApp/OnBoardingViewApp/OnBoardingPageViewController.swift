@@ -2,7 +2,7 @@
 //  OnBoardingPageViewController.swift
 //  OnBoardingViewApp
 //
-//  Created by 이윤식 on 2021/12/27.
+//   Created by 이윤식 on 2021/12/27.
 //
 
 import UIKit

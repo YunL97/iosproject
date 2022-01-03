@@ -1,18 +1,13 @@
 //
 //  ViewController.swift
-//  OnBoardingViewApp
+//  onBoardingViewApp
 //
-//  Created by 이윤식 on 2021/12/27..
+//  Created by 이윤식 on 2022/01/03.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-
-    
-    
-    
-    
 
     
 
@@ -22,8 +17,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        if UserDefaults.standard.object(forKey: "gg") == nil {
-            UserDefaults.standard.set(false, forKey: "gg")
+        if UserDefaults.standard.object(forKey: "kk") == nil {
+            UserDefaults.standard.set(false, forKey: "kk")
             
         }
     }
@@ -37,7 +32,7 @@ class ViewController: UIViewController {
         
    
         
-        var user = UserDefaults.standard.bool(forKey: "gg")
+        var user = UserDefaults.standard.bool(forKey: "kk")
         print(user)
         if user == false {
         let pageVC = OnBoardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)
@@ -51,4 +46,3 @@ class ViewController: UIViewController {
 }
 }
     
-

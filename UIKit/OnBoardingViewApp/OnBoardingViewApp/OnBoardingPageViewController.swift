@@ -135,7 +135,7 @@ class OnBoardingPageViewController: UIPageViewController {
     
     @objc func dismissPageVC(){
         print("clickbutton")
-        UserDefaults.standard.set(true, forKey: "gg")
+        UserDefaults.standard.set(true, forKey: "kk")
         self.dismiss(animated: true, completion: nil)
     }
 

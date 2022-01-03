@@ -1,8 +1,8 @@
 //
-//  AppDelegate.swift
-//  OnBoardingViewApp
+//  AooDekegate.swift
+//  onBoardingViewApp
 //
-//  Created by 이윤식 on 2021/12/27.
+//  Created by 이윤식 on 2022/01/03.
 //
 
 import UIKit
@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: UISceneSession Lifecycle
-
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
@@ -33,4 +32,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

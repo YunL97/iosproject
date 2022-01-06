@@ -8,6 +8,26 @@
 import UIKit
 import CoreData
 
+enum PriorityLevel: Int64 {
+    case level1
+    case level2
+    case level3
+}
+
+extension PriorityLevel {
+    var color: UIColor {
+        switch self{
+        case .level1:
+            return .green
+        case .level2:
+            return .orange
+        case .level3:
+            return .red
+        }
+    }
+}
+
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var todoTableView: UITableView!
@@ -67,13 +87,19 @@ class ViewController: UIViewController {
     
     
     @objc func addNewTodo() {
+        let detailVC = TodoDetailViewController.init(nibName: "TodoDetailViewController", bundle: nil)
         
+        //***** 밑에 extension 코드 구현 으로 인해서 self로 연결해주면 detailvc present 할 때 didFinishSaveData 함수 실행
+        detailVC.delegate = self
+        self.present(detailVC, animated: true, completion: nil)
     }
 
 
 }
 
 extension ViewController:UITableViewDelegate, UITableViewDataSource {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoList.count
     }
@@ -84,16 +110,44 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource {
         cell.topTitleLabel.text = todoList[indexPath.row].title
         
         if let hasDate = todoList[indexPath.row].date {
+            
             let formatter = DateFormatter()
-            formatter.dateFormat = "MM-dd hh:mm:ss"
+            formatter.dateFormat = "MM-dd HH:mm:ss"
             let dateString = formatter.string(from: hasDate)
             
             cell.dateLabel.text = dateString
         }else {
             cell.dateLabel.text = ""
         }
+
+        //로컬 데이터 가져오기
+        let priority = todoList[indexPath.row].prioirtyLevel
+        
+        
+       let priorityColor =  PriorityLevel(rawValue: priority)?.color
+        
+        cell.prioirtyView.backgroundColor = priorityColor
+        cell.prioirtyView.layer.cornerRadius = cell.prioirtyView.bounds.height / 2
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        
+        let detailVC = TodoDetailViewController.init(nibName: "TodoDetailViewController", bundle: nil)
+        
+        detailVC.delegate = self
+        detailVC.selectedTodoList = todoList[indexPath.row]
+
+        self.present(detailVC, animated: true, completion: nil)
+    }
+}
+
+extension ViewController:TodoDetailViewControllerDelegate {
+    func didFinishSaveData() {
+        self.fetchData()
+        self.todoTableView.reloadData()
     }
     
     

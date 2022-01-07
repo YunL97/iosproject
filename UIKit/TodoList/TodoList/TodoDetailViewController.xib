@@ -10,9 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodoDetailViewController" customModule="TodoList" customModuleProvider="target">
             <connections>
+                <outlet property="deleteButton" destination="4FM-ef-pct" id="w46-Uw-9Xh"/>
                 <outlet property="highButton" destination="TTw-l6-f8c" id="O6n-WB-Uci"/>
                 <outlet property="lowButton" destination="uLl-NE-ckv" id="qvM-dY-7YT"/>
                 <outlet property="normalButton" destination="rLa-zX-o02" id="vNg-5D-CSA"/>
+                <outlet property="saveButton" destination="kim-TA-vHb" id="9fD-dK-3SQ"/>
                 <outlet property="titleTextField" destination="CAB-wE-djA" id="pp6-Ye-hiv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -71,6 +73,9 @@
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="delete"/>
+                    <connections>
+                        <action selector="deleteTodo:" destination="-1" eventType="touchUpInside" id="JRP-vA-SGK"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LL5-ML-XPm">
                     <rect key="frame" x="20" y="234.5" width="374" height="111.5"/>

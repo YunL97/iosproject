@@ -61,6 +61,7 @@ class ViewController: UIViewController {
        let context = appdelegate.persistentContainer.viewContext
         
         do {
+            //
             self.todoList = try context.fetch(fetchRequest)
             
             
@@ -99,11 +100,14 @@ class ViewController: UIViewController {
 
 extension ViewController:UITableViewDelegate, UITableViewDataSource {
     
-    
+    //저장한 셀 가져오기
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      
         return todoList.count
     }
     
+    
+    //셀 저장하기
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! TodoCell
         
@@ -132,12 +136,16 @@ extension ViewController:UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
+    //셀클릭
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         
         let detailVC = TodoDetailViewController.init(nibName: "TodoDetailViewController", bundle: nil)
         
         detailVC.delegate = self
+        
+        //데이터 튜플 넣기 data, priorityLevel, title, uuid
         detailVC.selectedTodoList = todoList[indexPath.row]
 
         self.present(detailVC, animated: true, completion: nil)

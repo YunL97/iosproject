@@ -171,6 +171,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
+        //셀 클릭했을때 검게 변하는거 다시 되돌아오게함
         tableView.deselectRow(at: indexPath, animated: true)
         
         detailVC.movieResult =  self.movieModel?.results[indexPath.row]

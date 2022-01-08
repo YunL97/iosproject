@@ -72,6 +72,7 @@ class OnBoardingPageViewController: UIPageViewController {
         button.addTarget(self, action: #selector(dismissPageVC), for: .touchUpInside)
         
         //view에 추가
+        //서브뷰 추가
         self.view.addSubview(button)
         
         //오토레이아웃 설정하려면 이거를 false 해야함
@@ -98,6 +99,7 @@ class OnBoardingPageViewController: UIPageViewController {
         
     }
     
+    //점만들기
     func makePageControl() {
         self.view.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -118,6 +120,8 @@ class OnBoardingPageViewController: UIPageViewController {
         pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -80).isActive = true
         pageControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
+    
+    //탭해서 넘기기
     @objc func pageControlTapped(sender: UIPageControl) {
         
         if sender.currentPage > self.currnetInex {
@@ -140,6 +144,8 @@ class OnBoardingPageViewController: UIPageViewController {
     }
 
 }
+
+//---------------------------------------------------------------------------------------
 
 //현재 페이지 어디인지 알려주는 기능
 extension OnBoardingPageViewController:UIPageViewControllerDelegate{

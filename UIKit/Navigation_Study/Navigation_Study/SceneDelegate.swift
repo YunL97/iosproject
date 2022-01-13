@@ -10,12 +10,21 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var statusBarView = UIView()
+    
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+//        statusBarView.backgroundColor = .purple
+        //스테이터스바 크기 가져옴
+        statusBarView.frame =  window?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
+//        window?.addSubview(statusBarView)
+        
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

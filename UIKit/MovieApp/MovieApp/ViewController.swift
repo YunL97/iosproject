@@ -29,7 +29,7 @@ class ViewController: UIViewController{
         
         
     }
-    
+    //{ image in cell.movieimageView.image = image}
     func loadImage2(urlString: String, completion: @escaping (UIImage?) -> Void){
         networkLayer.request(type: .justURL(urlString: urlString)) {  data, response, error in
             if let hasData = data {
@@ -40,6 +40,7 @@ class ViewController: UIViewController{
             
                             return
                             }
+            //살패 했을때도 메모리를 계속 가지고 있기 때문에 실패했을때 nil을 넣어줘서 메모리를 해제 해줘야한다
             completion(nil)
         }
     }
@@ -108,56 +109,6 @@ class ViewController: UIViewController{
             }
         }
     }
-    
-    //nework, json 데이터 받아옴
-//    func requestMovieAPI(){
-//        let sessionConfig = URLSessionConfiguration.default
-//
-//        let session = URLSession(configuration: sessionConfig)
-//
-//        var components = URLComponents(string: "https://itunes.apple.com/search")
-//
-//        let term = URLQueryItem(name: "term", value: term)
-//        let media = URLQueryItem(name: "media", value: "movie")
-//
-//        //https://itunes.apple.com/search?term=marvel&media=movie
-//        components?.queryItems = [term, media]
-//
-//        guard let url = components?.url else {
-//            print("url이 잘못되었습니다")
-//            return
-//        }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "GET"
-//
-//
-//
-//       let task = session.dataTask(with: request) { data, response, error in
-//
-//           //상태코드 ex: 200, 404 *****
-//           print((response as! HTTPURLResponse).statusCode)
-//
-//           //data 가 있을때만 파싱(decoding)
-//           if let hasData = data {
-//               do{
-//
-//                   self.movieModel =  try  JSONDecoder().decode(MovieModel.self , from: hasData)
-//                   print(self.movieModel ?? "no data")
-//                   
-//                   self.movieModel?.results.sort{ $0.trackName ?? "" < $1.trackName ?? ""}
-//
-//                   DispatchQueue.main.async {
-//                       self.movieTableView.reloadData()
-//                   }
-//
-//               }catch{
-//                   print(error)
-//               }
-//           }
-//       }
-//        task.resume()
-//        session.finishTasksAndInvalidate()
-//    }
     
 }
 

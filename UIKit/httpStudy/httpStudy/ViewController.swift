@@ -11,32 +11,46 @@ import Alamofire
 class ViewController: UIViewController {
     @IBOutlet var progressView: UIProgressView!
     @IBOutlet var progressLabel: UILabel!
-    
     @IBAction func down(_ sender: Any) {
         downTest()
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        getTest()
+        getTest()
 //        postTest()
         progressView.progress = 0
         
     }
-
+    
     func getTest() {
-            let url = "https://jsonplaceholder.typicode.com/todos/1"
+            let url = "https://lys97.shop/api/user"
             AF.request(url,
                        method: .get,
                        parameters: nil,
                        encoding: URLEncoding.default,
                        headers: ["Content-Type":"application/json", "Accept":"application/json"])
                 .validate(statusCode: 200..<300)
-                .responseJSON { (json) in
+                .responseJSON { response in
                     //여기서 가져온 데이터를 자유롭게 활용하세요.
-                    print(json)
+                    
+                    switch response.result {
+                    case .success(let value):
+                        print(value)
+                        
+                        do {
+                            let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                            let user = try JSONDecoder().decode(JsonModel.self, from: data)
+                            print(user)
+                            self.progressLabel.text = user.name
+                        }catch {
+                            print("aa")
+                        }
+                    default: return
+                    }
+                    
+                    
             }
         }
     

@@ -1,20 +1,23 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const { fsyncSync } = require("fs");
+var fs = require("fs");
+var https = require("https");
 const app = express();
+
 const port = 3000;
 
-var users = [
-    {
-        id: "1",
-        name: "lee",
-        pahoe: "01000000000",
-    },
-    {
-        id: "2",
-        name: "yun",
-        pahoe: "01011111111",
-    },
-];
+var users = {
+    id: "1",
+    name: "lee",
+    phone: "01000000000",
+};
+
+var sslOptions = {
+    ca: fs.readFileSync("lys97.shop/ca_bundle.crt"),
+    key: fs.readFileSync("lys97.shop/private.key"),
+    cert: fs.readFileSync("lys97.shop/certificate.crt"),
+};
 
 app.use(bodyParser.json());
 
@@ -33,6 +36,4 @@ app.post("/api/user", (req, res) => {
     res.json(users);
 });
 
-app.listen(port, (req, res) => {
-    console.log("server is running port %s", port);
-});
+https.createServer(sslOptions, app).listen(port);

@@ -1,12 +1,12 @@
 //
 //  AppDelegate.swift
-//  FirebaseRESTAPI
+//  PopUpEx
 //
-//  Created by 이윤식 on 2022/03/15.
+//  Created by 김종권 on 2021/09/14.
 //
 
 import UIKit
-import Firebase
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -14,8 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        FirebaseApp.configure()
         return true
     }
 

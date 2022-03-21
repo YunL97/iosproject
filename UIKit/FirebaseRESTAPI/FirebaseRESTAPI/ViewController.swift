@@ -6,12 +6,18 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
+    lazy var rootRef = Database.database().reference()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let itemRef = rootRef.child("list")
+                itemRef.setValue("가나다")
     }
 
 
